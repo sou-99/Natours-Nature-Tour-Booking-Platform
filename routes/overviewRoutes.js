@@ -1,0 +1,13 @@
+const express = require("express")
+const { getOverViewController, getTour, getLogInForm, getAccount, updateUserData, getMyTours } = require("../controllers/overviewController")
+const authController = require("../controllers/authController")
+const { createBookingCheckout } = require("../controllers/bookingController")
+const route = express.Router()
+
+route.get("/", createBookingCheckout,authController.isLoggedIn,getOverViewController)
+route.get("/tour/:slug", authController.isLoggedIn,getTour)
+route.get("/login",authController.isLoggedIn,getLogInForm)
+route.get("/me",authController.protect,getAccount)
+route.get("/my-tours",authController.protect,getMyTours)
+route.post("/submit-user-data",authController.protect,updateUserData)
+module.exports = route;
