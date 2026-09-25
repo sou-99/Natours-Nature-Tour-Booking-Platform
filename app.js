@@ -16,6 +16,7 @@ const path = require("path");
 const rateLimit = require("express-rate-limit")
 const helmet = require("helmet")
 const cookieParser = require("cookie-parser")
+const compression = require("compression")
 const app = express();
 
 app.set("view engine","pug")
@@ -107,15 +108,15 @@ app.use(hpp({
 
 //it is just a test middleware
 app.use((req, res, next) => {
-  console.log('Hello from the middleware 👋');
+  // console.log('Hello from the middleware 👋');
   next();
 });
 
-
+app.use(compression())
 //it is just a test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  console.log(req.cookies)
+  // console.log(req.cookies)
   next();
 });
 

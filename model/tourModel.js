@@ -136,7 +136,6 @@ const tourSchema = new mongoose.Schema({
   })
   // MONGOOSE DOCUMET MIDDLEWARE RUN BEFORE SAVE() & CREATE()
   tourSchema.pre("save",function(){
-    console.log("Will save document-----")
     this.slug = slugify(this.name,{lower:true})
     // next()
   })

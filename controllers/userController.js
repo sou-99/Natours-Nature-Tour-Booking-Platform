@@ -61,8 +61,6 @@ exports.getAllUsers = factory.getAll(User)
 // });
 
 exports.updateMe = catchAsync(async (req, res, next) => {
-  console.log("HAY=",req.file)
-  console.log(req.body)
   // 1) if user pass password, passwordConfirm then thorw error
   if (req.body.password || req.body.passwordConfirm) {
     return next(new AppError("This route is not for password update. Please use /updateMyPassword", 400))

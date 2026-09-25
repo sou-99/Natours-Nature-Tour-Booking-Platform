@@ -21,7 +21,6 @@ if (loginForm) {
         login(email, password)
     })
 }
-console.log(logOutButton)
 if(logOutButton) logOutButton.addEventListener("click",logout)
 if(userDataForm) userDataForm.addEventListener("submit", (e)=>{
     e.preventDefault();
