@@ -89,7 +89,8 @@ app.use(cookieParser())
 app.use(mongoSanitize())
 //Data sanitization against XSS
 app.use(xss())
-
+app.use(cors())
+app.options('*', cors())
 // Prevent parameter pollution 
 //eg. ?sort=duration&sort=price -> generally throws error -> need to use hpp to consider last query like sort=price
 // white listed values are allowed to provide range like ?duration=2&duration=5
