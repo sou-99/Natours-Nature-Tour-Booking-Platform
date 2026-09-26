@@ -17,11 +17,11 @@ block content
                         p.card__text= tour.summary
                         .card__data
                             svg.card__icon
-                                use(xlink:href='img/icons.svg#icon-map-pin')
+                                use(xlink:href='/img/icons.svg#icon-map-pin')
                             span= tour.startLocation.description
                         .card__data
                             svg.card__icon
-                                use(xlink:href='img/icons.svg#icon-calendar')
+                                use(xlink:href='/img/icons.svg#icon-calendar')
                             span= tour.startDates[0].toLocaleString("en-US",{month:"long",year:"numeric"})
                         .card__data
                             svg.card__icon
