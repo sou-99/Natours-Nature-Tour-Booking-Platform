@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const AppError = require("./utils/appError")
 const globalErrorHandler = require("./controllers/errorController")
+const bookingController = require("./controllers/bookingController")
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewRouter = require("./routes/reviewRoutes")
@@ -17,6 +18,8 @@ const rateLimit = require("express-rate-limit")
 const helmet = require("helmet")
 const cookieParser = require("cookie-parser")
 const compression = require("compression")
+const cors = require("cors")
+const bodyParser = require("body-parser")
 const app = express();
 
 app.set("view engine","pug")
@@ -81,6 +84,7 @@ const limiter = rateLimit({
 })
 //Limit request from same API
 app.use("/api",limiter)
+app.post("/webhook-checkout",bodyParser.raw({type:"application/json"}),bookingController.webhookCheckout)
 // Body parser, attaches the API request body to req.body
 app.use(express.json({limit:"10kb"}));
 app.use(express.urlencoded({extended:true,limit:"10kb"}))
