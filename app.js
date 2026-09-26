@@ -56,6 +56,7 @@ app.use(helmet(
           "https://*.mapbox.com",
           "https://cdn.jsdelivr.net",
           "ws://127.0.0.1:*",
+          'wss://tour-app-400y.onrender.com:51556/'
         ],
         workerSrc: [
           "'self'",
