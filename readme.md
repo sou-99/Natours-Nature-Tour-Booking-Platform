@@ -1,3 +1,3 @@
 # Natures App
 
-Built with latest technologies: Expres.js, Node.Js
+Built with latest technologies: Expres.js, Node.Js, pug, MongoDb, Atlas etc....
